@@ -1,6 +1,7 @@
-﻿@page "/"
+﻿@page "/weight-tracker"
 @using WeightMe.Model
 @using WeightMe.Data
+@inject IJSRuntime JSRuntime
 
 @inject DatabaseService DbService;
 
@@ -12,6 +13,10 @@
         <li>@entry.EntryDate.ToShortDateString(): @entry.Weight kg</li>
     }
 </ul>
+
+<h3>Weight Chart</h3>
+
+<canvas id="weightChart" width="400" height="200"></canvas>
 
 <input @bind="newWeight" type="number" placeholder="New weight (kg)" />
 <input @bind="newDate" type="date" />
@@ -39,3 +44,9 @@
         }
     }
 }
+
+
+
+
+
+

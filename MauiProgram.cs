@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using WeightMe.DataModel;
+﻿using Microsoft.Extensions.Logging;
+using WeightMe.Data;
+using WeightMe.Model;
 
 namespace WeightMe
 {
@@ -16,8 +16,8 @@ namespace WeightMe
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
-            builder.Services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlite($"Filename={Path.Combine(FileSystem.AppDataDirectory, "weights.db")}"));
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "weighttracker.db");
+            builder.Services.AddSingleton<DatabaseService>(s => new DatabaseService(dbPath));
 
             builder.Services.AddMauiBlazorWebView();
 

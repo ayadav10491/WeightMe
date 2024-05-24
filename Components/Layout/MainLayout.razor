@@ -1,17 +1,24 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="">WeightMe</a>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav">
+              
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="weight-tracker">Weight Tracker</NavLink>
+                </li>
+             
+            </ul>
         </div>
+    </div>
+</nav>
 
-        <article class="content px-4">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
             @Body
-        </article>
-    </main>
+        </div>
+    </div>
 </div>
