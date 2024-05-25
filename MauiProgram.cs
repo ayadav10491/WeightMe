@@ -16,6 +16,7 @@ namespace WeightMe
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
+            
             string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "weighttracker.db");
             builder.Services.AddSingleton<DatabaseService>(s => new DatabaseService(dbPath));
 

@@ -1,0 +1,21 @@
+﻿@page "/weight-chart"
+@inject DatabaseService DbService
+@using WeightMe.Model
+@using WeightMe.Data
+
+@inject IJSRuntime JSRuntime
+
+<h3>Weight Chart</h3>
+
+<canvas id="weightChart" width="400" height="200"></canvas>
+
+@code 
+{
+    private List<WeightEntry>? weightEntries;
+
+    protected override async Task OnInitializedAsync()
+    {
+        weightEntries = await DbService.GetWeightEntriesAsync();
+        await JSRuntime.InvokeVoidAsync("plotWeightChart", weightEntries.Select(e => e.EntryDate.ToString("yyyy-MM-dd")).ToArray(), weightEntries.Select(e => e.Weight).ToArray());
+    }
+}

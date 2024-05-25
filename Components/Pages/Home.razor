@@ -4,7 +4,7 @@
 
 @inject DatabaseService DbService;
 
-<h3>Weight Tracker</h3>
+<h3></h3>
 
 <ul>
     @foreach (var entry in weightEntries)
@@ -12,7 +12,6 @@
         <li>@entry.EntryDate.ToShortDateString(): @entry.Weight kg</li>
     }
 </ul>
-
 <input @bind="newWeight" type="number" placeholder="New weight (kg)" />
 <input @bind="newDate" type="date" />
 <button @onclick="AddWeightEntry">Add Entry</button>
